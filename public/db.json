@@ -1,0 +1,27 @@
+{
+  "date": {
+    "day": 1,
+    "month": 6,
+    "year": 2021
+  },
+  "wishes": [
+    {
+      "id": 1,
+      "name": "Vanesa",
+      "wish": "Selamat menempuh hidup baru",
+      "date": "20 April 2021"
+    },
+    {
+      "id": 2,
+      "name": "Pricilla",
+      "wish": "Semoga samawa ya",
+      "date": "23 April 2021"
+    },
+    {
+      "name": "Haryanto",
+      "wish": "Semoga Allah memberikan kemudahan, kelancaran, keselamatan dan keberkahan... Aamiin ",
+      "date": "29 April 2021",
+      "id": 3
+    }
+  ]
+}
