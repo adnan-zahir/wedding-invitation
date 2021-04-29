@@ -8,6 +8,8 @@ import Profiles from './pages/Profiles';
 import Video from './pages/Video';
 import WeddingWishes from './pages/WeddingWishes';
 import DATA from './data/DATA.json';
+import Aos from 'aos';
+import AudioControl from './components/AudioControl';
 
 const App = () => {
   const [date, setDate] = useState({
@@ -20,6 +22,11 @@ const App = () => {
 
   useEffect(() => {
     fetchDate();
+    Aos.init({
+      duration: 500,
+      offset: 100,
+      easing: 'ease-in-sine',
+    });
   }, []);
 
   useEffect(() => {
@@ -43,8 +50,12 @@ const App = () => {
   ];
 
   const fetchDate = async () => {
-    const { data } = await axios.get(`${DATA.databaseUrl}/date`);
-    setDate(data);
+    try {
+      const { data } = await axios.get(`${DATA.databaseUrl}/date`);
+      setDate(data);
+    } catch (err) {
+      alert(`There's a problem : ${err}`);
+    }
   };
 
   const dateToString = () => {
@@ -67,6 +78,7 @@ const App = () => {
       <EventDescription dateData={updatedDate} />
       <GalleryPage />
       <WeddingWishes />
+      <AudioControl />
       <footer>
         <h2>Thank You</h2>
       </footer>

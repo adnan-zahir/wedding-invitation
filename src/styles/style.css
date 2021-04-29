@@ -118,6 +118,15 @@ button,
   transition: all 200ms ease;
 }
 
+audio {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 1rem;
+  width: 5rem;
+  background-color: var(--primary-dark);
+}
+
 /*
 ------------------------
    4. SPECIFIC STYLES

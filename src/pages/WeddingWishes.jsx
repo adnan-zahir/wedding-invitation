@@ -26,8 +26,12 @@ const WeddingWishes = () => {
   }, []);
 
   const fetchWishes = async () => {
-    const { data } = await axios.get(`${DATA.databaseUrl}/wishes`);
-    setWishes(data);
+    try {
+      const { data } = await axios.get(`${DATA.databaseUrl}/wishes`);
+      setWishes(data);
+    } catch (err) {
+      alert(`There's a problem : ${err}`);
+    }
   };
 
   const onSubmitHandler = (e) => {
@@ -45,24 +49,37 @@ const WeddingWishes = () => {
   };
 
   const postWish = async (weddingWish) => {
-    const data = await axios.post(`${DATA.databaseUrl}/wishes`, weddingWish);
-    return data;
+    try {
+      const data = await axios.post(`${DATA.databaseUrl}/wishes`, weddingWish);
+      return data;
+    } catch (err) {
+      alert(`There's a problem : ${err}`);
+    }
   };
 
   return (
     <section className="wedding-wishes">
-      <h2 className="section-title">Wedding Wishes</h2>
-      <form className="wishes-form" onSubmit={onSubmitHandler}>
-        <input type="text" className="name" id="nameInput" placeholder="Nama" />
+      <h2 className="section-title" data-aos="fade-down">
+        Wedding Wishes
+      </h2>
+      <form className="wishes-form" onSubmit={onSubmitHandler} data-aos="fade">
+        <input
+          type="text"
+          className="name"
+          id="nameInput"
+          placeholder="Nama"
+          required
+        />
         <textarea
           name="wish-input"
           className="wish-input"
           id="wishInput"
           placeholder="Tulis harapanmu untuk calon mempelai"
+          required
         ></textarea>
         <input type="submit" value="Kirim" className="btn" />
       </form>
-      <div className="wishes-list">
+      <div className="wishes-list" data-aos="fade">
         {wishes.map((wish) => (
           <WishCard
             key={wish.id}

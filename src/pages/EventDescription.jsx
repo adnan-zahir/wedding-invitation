@@ -28,7 +28,7 @@ const EventDescription = (props) => {
 
   return (
     <section className="event-description">
-      <div className="desc-date">
+      <div className="desc-date" data-aos="fade">
         <span className="desc-date__day">
           {
             dayList[
@@ -46,11 +46,11 @@ const EventDescription = (props) => {
         </span>
         <span className="desc-date__year">{dateData.year}</span>
       </div>
-      <div className="desc-time">
+      <div className="desc-time" data-aos="fade-right">
         <span>Akad Nikah</span>
         <span>08:30 - 10:30</span>
       </div>
-      <div className="desc-schedule">
+      <div className="desc-schedule" data-aos="fade-left">
         <span>Resepsi</span>
         <span>Sesi 1 : 11.00 - 12.30 WIB</span>
         <span>&</span>
@@ -59,7 +59,7 @@ const EventDescription = (props) => {
           <strong>11:00 - 14.30</strong>
         </p>
       </div>
-      <div className="desc-location">
+      <div className="desc-location" data-aos="fade">
         <span>Gedong Putih</span>
         <p>
           Jalan Sersan Bajuri, Cihideung, Kecamatan Parongpong, Kabupaten

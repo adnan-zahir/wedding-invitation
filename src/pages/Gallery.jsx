@@ -42,7 +42,9 @@ const GalleryPage = () => {
 
   return (
     <section className="gallery">
-      <h2 className="section-title">Our Photos</h2>
+      <h2 className="section-title" data-aos="fade-down">
+        Our Photos
+      </h2>
       <Gallery photos={photos} />
     </section>
   );

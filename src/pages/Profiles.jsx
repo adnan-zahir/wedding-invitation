@@ -4,8 +4,10 @@ import instagramLogo from '../images/icons/instagram.svg';
 const Profiles = () => {
   return (
     <section className="profiles">
-      <h2 className="section-title">The Bride and The Groom</h2>
-      <div className="profile">
+      <h2 className="section-title" data-aos="fade-down">
+        The Bride and The Groom
+      </h2>
+      <div className="profile" data-aos="fade-right">
         <img
           src={profilePicture}
           alt="Pengantin Wanita"
@@ -20,7 +22,7 @@ const Profiles = () => {
         </small>
       </div>
       <span className="ampersand">&</span>
-      <div className="profile">
+      <div className="profile" data-aos="fade-left">
         <img
           src={profilePicture}
           alt="Pengantin Pria"
