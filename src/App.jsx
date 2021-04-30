@@ -26,6 +26,7 @@ const App = () => {
       duration: 500,
       offset: 100,
       easing: 'ease-in-sine',
+      disable: 'mobile',
     });
   }, []);
 
