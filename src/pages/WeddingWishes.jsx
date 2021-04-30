@@ -50,8 +50,11 @@ const WeddingWishes = () => {
 
   const postWish = async (weddingWish) => {
     try {
-      const data = await axios.post(`${DATA.databaseUrl}/wishes`, weddingWish);
-      return data;
+      const { data } = await axios.post(
+        `${DATA.databaseUrl}/wishes`,
+        weddingWish
+      );
+      setWishes([...wishes, data]);
     } catch (err) {
       alert(`There's a problem : ${err}`);
     }
