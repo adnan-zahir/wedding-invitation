@@ -322,8 +322,9 @@ h1.title {
 }
 
 .profile-link img {
-  width: var(--font-size-small);
   width: 0.875rem;
+  height: 0.875rem;
+  aspect-ratio: 1 / 1;
 }
 
 .ampersand {
@@ -389,7 +390,10 @@ h1.title {
 }
 
 .video video {
-  background: #f1f1f1;
+  background-image: url('../videos/thumbs.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 1rem 0;
   min-width: 10rem;
   width: 90%;

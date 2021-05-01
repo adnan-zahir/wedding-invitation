@@ -1,5 +1,4 @@
 import videoMp4 from '../videos/video.mp4';
-import thumbnailPng from '../videos/thumbs.png';
 
 const Video = () => {
   return (
@@ -9,7 +8,6 @@ const Video = () => {
       </h2>
       <video data-aos="fade" controls height="250" width="300">
         <source src={videoMp4} type="video/mp4" />
-        <img src={thumbnailPng} alt="Prewedding Thumbnail" />
       </video>
       <p data-aos="fade-up">Everything starts from here</p>
     </section>
