@@ -7,7 +7,7 @@ const Video = () => {
       <h2 className="section-title" data-aos="fade-down">
         When We Decide to be Together
       </h2>
-      <video data-aos="fade" controls height="300" width="400">
+      <video data-aos="fade" controls height="200" width="300">
         <source src={videoWebm} type="video/webm" />
         <source src={videoMp4} type="video/mpeg" />
       </video>
