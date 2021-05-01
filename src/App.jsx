@@ -20,6 +20,7 @@ const App = () => {
   const [updatedDate, setUpdatedDate] = useState({});
   const [dateString, setDateString] = useState('');
   const [weddingData, setWeddingData] = useState({});
+  const [updatedWeddingData, setUpdatedWeddingData] = useState({});
 
   const dateToString = useCallback((date) => {
     const monthList = [
@@ -60,6 +61,7 @@ const App = () => {
   useEffect(() => {
     dateToString(date);
     setUpdatedDate(date);
+    setUpdatedWeddingData(weddingData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
@@ -77,13 +79,13 @@ const App = () => {
   return (
     <div className="App">
       <Jumbotron />
-      <Profiles profile={weddingData.profile} />
+      <Profiles profile={updatedWeddingData.profile} />
       <Date dateString={dateString} dateData={updatedDate} />
       <Video />
       <EventDescription
         dateData={updatedDate}
-        location={weddingData.location}
-        schedule={weddingData.schedule}
+        location={updatedWeddingData.location}
+        schedule={updatedWeddingData.schedule}
       />
       <GalleryPage />
       <WeddingWishes />
