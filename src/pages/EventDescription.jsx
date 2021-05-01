@@ -60,10 +60,10 @@ const EventDescription = (props) => {
         </p>
       </div>
       <div className="desc-location" data-aos="fade">
-        <span>Gedong Putih</span>
+        <span>Wedding Hall</span>
         <p>
-          Jalan Sersan Bajuri, Cihideung, Kecamatan Parongpong, Kabupaten
-          Bandung Barat
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque,
+          officia.
         </p>
         <a
           className="btn view-map-button"
