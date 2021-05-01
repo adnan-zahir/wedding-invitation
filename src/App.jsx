@@ -66,6 +66,7 @@ const App = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(`${DATA.databaseUrl}/weddingData`);
+      console.log(data);
       setDate(data.date);
       setWeddingData(data);
     } catch (err) {
