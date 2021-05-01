@@ -391,10 +391,12 @@ h1.title {
 }
 
 .video-container {
+  display: block;
+  position: relative;
   min-width: 10rem;
   width: 90%;
   max-width: 50rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
 }
 
 .video-container video {
@@ -413,7 +415,7 @@ h1.title {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(10px);
+  filter: blur(3px);
 }
 
 /* e. Event Description */
