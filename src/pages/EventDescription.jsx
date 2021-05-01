@@ -65,7 +65,12 @@ const EventDescription = (props) => {
           Jalan Sersan Bajuri, Cihideung, Kecamatan Parongpong, Kabupaten
           Bandung Barat
         </p>
-        <a className="btn view-map-button" href="/">
+        <a
+          className="btn view-map-button"
+          href="https://maps.google.com/?cid=15624768813026396569"
+          target="_blank"
+          rel="noreferrer"
+        >
           View Map
         </a>
       </div>
