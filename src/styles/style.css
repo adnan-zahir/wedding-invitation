@@ -318,6 +318,7 @@ h1.title {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
 }
 
