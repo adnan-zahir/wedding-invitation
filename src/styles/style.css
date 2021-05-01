@@ -299,7 +299,7 @@ h1.title {
   }
 }
 
-.profile img {
+.profile > img {
   min-width: 10rem;
   width: 80%;
   max-width: 20rem;
@@ -323,6 +323,7 @@ h1.title {
 
 .profile-link img {
   width: var(--font-size-small);
+  width: 0.875rem;
 }
 
 .ampersand {
@@ -362,12 +363,18 @@ h1.title {
   display: -ms-flexbox;
   display: flex;
   gap: 3rem;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .countdown-item {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+
+.countdown-item:not(:first-child) {
+  margin-left: 3rem;
 }
 
 .countdown-item span {
@@ -388,6 +395,10 @@ h1.title {
   min-width: 10rem;
   width: 90%;
   max-width: 50rem;
+}
+
+.video video img {
+  width: 100%;
 }
 
 /* e. Event Description */
