@@ -362,7 +362,6 @@ h1.title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 3rem;
   align-items: center;
   justify-content: space-evenly;
 }
