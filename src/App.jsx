@@ -19,6 +19,7 @@ const App = () => {
   });
   const [updatedDate, setUpdatedDate] = useState({});
   const [dateString, setDateString] = useState('');
+  const [weddingData, setWeddingData] = useState({});
 
   const dateToString = useCallback((date) => {
     const monthList = [
@@ -47,7 +48,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    fetchDate();
+    fetchData();
     Aos.init({
       duration: 500,
       offset: 100,
@@ -62,10 +63,11 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
-  const fetchDate = async () => {
+  const fetchData = async () => {
     try {
-      const { data } = await axios.get(`${DATA.databaseUrl}/date`);
-      setDate(data);
+      const { data } = await axios.get(`${DATA.databaseUrl}/weddingData`);
+      setDate(data.date);
+      setWeddingData(data);
     } catch (err) {
       alert(`There's a problem : ${err}`);
     }
@@ -74,10 +76,14 @@ const App = () => {
   return (
     <div className="App">
       <Jumbotron />
-      <Profiles />
+      <Profiles profile={weddingData.profile} />
       <Date dateString={dateString} dateData={updatedDate} />
       <Video />
-      <EventDescription dateData={updatedDate} />
+      <EventDescription
+        dateData={updatedDate}
+        location={weddingData.location}
+        schedule={weddingData.schedule}
+      />
       <GalleryPage />
       <WeddingWishes />
       <AudioControl />

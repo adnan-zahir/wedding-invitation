@@ -24,7 +24,7 @@ const EventDescription = (props) => {
     'Saturday',
   ];
 
-  const { dateData } = props;
+  const { dateData, location, schedule } = props;
 
   return (
     <section className="event-description">
@@ -48,26 +48,26 @@ const EventDescription = (props) => {
       </div>
       <div className="desc-time" data-aos="fade-right">
         <span>Akad Nikah</span>
-        <span>08:30 - 10:30</span>
+        <span>{schedule.marriage}</span>
       </div>
       <div className="desc-schedule" data-aos="fade-left">
         <span>Resepsi</span>
-        <span>Sesi 1 : 11.00 - 12.30 WIB</span>
+        {/* <span>Sesi 1 : 11.00 - 12.30 WIB</span>
         <span>&</span>
-        <span>Sesi 2 : 13.00 - 14.30 WIB</span>
-        <p>
-          <strong>11:00 - 14.30</strong>
-        </p>
+        <span>Sesi 2 : 13.00 - 14.30 WIB</span> */}
+        {schedule.reception.map((rec) => (
+          <span>
+            {Object.keys(schedule.reception)[rec]} : {rec}
+          </span>
+        ))}
+        <p>{/* <strong>11:00 - 14.30</strong> */}</p>
       </div>
       <div className="desc-location" data-aos="fade">
-        <span>Wedding Hall</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque,
-          officia.
-        </p>
+        <span>{location.name}</span>
+        <p>{location.address}</p>
         <a
           className="btn view-map-button"
-          href="https://maps.google.com/?cid=15624768813026396569"
+          href={location.mapsLink}
           target="_blank"
           rel="noreferrer"
         >
