@@ -399,6 +399,7 @@ h1.title {
 
 .video video::before {
   content: '';
+  display: block;
   top: 0;
   left: 0;
   width: 100%;
