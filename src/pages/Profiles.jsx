@@ -1,5 +1,5 @@
 import profilePicture from '../images/profile-pic.png';
-import instagramLogo from '../images/icons/instagram.svg';
+import instagramLogo from '../images/icons/instagram.png';
 
 const Profiles = () => {
   return (
