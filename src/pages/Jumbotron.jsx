@@ -9,7 +9,7 @@ const Jumbotron = () => {
         <img src={jumbotronSmallPng} alt="Calon mempelai sedang bersama" />
       </picture>
       <h1 className="sub-title">The Wedding of</h1>
-      <h1 className="title">Aku & Kamu</h1>
+      <h1 className="title">Adnan & Aisha</h1>
     </section>
   );
 };
