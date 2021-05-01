@@ -699,11 +699,11 @@ footer {
       color-stop(#04040433),
       to(#04040455)
     ),
-    url('../images/background-footer.jpeg');
+    url('../images/background-footer.jpg');
   background-image: -o-linear-gradient(top, #04040455, #04040433, #04040455),
-    url('../images/background-footer.jpeg');
+    url('../images/background-footer.jpg');
   background-image: linear-gradient(to bottom, #04040455, #04040433, #04040455),
-    url('../images/background-footer.jpeg');
+    url('../images/background-footer.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
