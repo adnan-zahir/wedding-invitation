@@ -65,7 +65,7 @@ const EventDescription = (props) => {
           Jalan Sersan Bajuri, Cihideung, Kecamatan Parongpong, Kabupaten
           Bandung Barat
         </p>
-        <a className="btn view-map-button" href="#">
+        <a className="btn view-map-button" href="/">
           View Map
         </a>
       </div>

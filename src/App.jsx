@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Date from './pages/Date';
 import EventDescription from './pages/EventDescription';
 import GalleryPage from './pages/Gallery';
@@ -20,6 +20,32 @@ const App = () => {
   const [updatedDate, setUpdatedDate] = useState({});
   const [dateString, setDateString] = useState('');
 
+  const dateToString = useCallback((date) => {
+    const monthList = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+
+    const dateData = date;
+    const dayString =
+      dateData.day < 10 ? `0${dateData.day}` : `${dateData.day}`;
+    const monthString = monthList[dateData.month - 1];
+    const yearString = `${dateData.year}`;
+    setDateString(`${dayString} ${monthString} ${yearString}`);
+
+    if (dateData === {} || !dateData) setDateString('No Date');
+  }, []);
+
   useEffect(() => {
     fetchDate();
     Aos.init({
@@ -31,24 +57,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    dateToString();
+    dateToString(date);
     setUpdatedDate(date);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
-
-  const monthList = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
 
   const fetchDate = async () => {
     try {
@@ -57,17 +69,6 @@ const App = () => {
     } catch (err) {
       alert(`There's a problem : ${err}`);
     }
-  };
-
-  const dateToString = () => {
-    const dateData = date;
-    const dayString =
-      dateData.day < 10 ? `0${dateData.day}` : `${dateData.day}`;
-    const monthString = monthList[dateData.month - 1];
-    const yearString = `${dateData.year}`;
-    setDateString(`${dayString} ${monthString} ${yearString}`);
-
-    if (dateData === {} || !dateData) setDateString('No Date');
   };
 
   return (

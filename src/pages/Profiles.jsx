@@ -15,7 +15,7 @@ const Profiles = () => {
         />
         <h3 className="profile-name">Aku</h3>
         <small className="social">
-          <a href="#" className="profile-link">
+          <a href="/" className="profile-link">
             <img src={instagramLogo} alt="Instagram" className="social-icon" />
             @aku
           </a>
@@ -30,7 +30,7 @@ const Profiles = () => {
         />
         <h3 className="profile-name">Kamu</h3>
         <small className="social">
-          <a href="#" className="profile-link">
+          <a href="/" className="profile-link">
             <img src={instagramLogo} alt="Instagram" className="social-icon" />
             @kamu
           </a>
