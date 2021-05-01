@@ -390,26 +390,30 @@ h1.title {
   padding: 2rem 0.5rem;
 }
 
-.video video {
-  margin: 1rem 0;
+.video-container {
   min-width: 10rem;
   width: 90%;
   max-width: 50rem;
+  margin: 1rem 0;
 }
 
-.video video::before {
+.video-container video {
+  width: 100%;
+}
+
+.video-container::before {
   content: '';
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   background-image: url('../videos/thumbs.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(50);
+  filter: blur(10px);
 }
 
 /* e. Event Description */
