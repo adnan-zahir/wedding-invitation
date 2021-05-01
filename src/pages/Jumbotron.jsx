@@ -1,5 +1,5 @@
 import jumbotronPng from '../images/jumbotron/jumbotron.png';
-import jumbotronSmallPng from '../images/jumbotron/jumbotron-small.webp';
+import jumbotronSmallPng from '../images/jumbotron/jumbotron-small.png';
 
 const Jumbotron = () => {
   return (
