@@ -1,4 +1,11 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*
 ----------------------
    TABLE OF CONTENT
 ----------------------
@@ -61,6 +68,7 @@
 ::before {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -71,7 +79,12 @@ body {
 }
 
 .App {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -115,6 +128,8 @@ button,
   padding: 0.5rem 0.75rem;
   border: none;
   border-radius: 0.3rem;
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
 
@@ -137,9 +152,18 @@ audio {
 
 .jumbotron {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -150,6 +174,7 @@ audio {
   left: 0;
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -161,6 +186,14 @@ audio {
   right: 0;
   bottom: 0;
   left: 0;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(70%, transparent),
+    to(#ffffffee)
+  );
+  background: -o-linear-gradient(top, transparent 70%, #ffffffee 100%);
   background: linear-gradient(to bottom, transparent 70%, #ffffffee 100%);
 }
 
@@ -174,11 +207,32 @@ h1.title {
 
 .profiles {
   position: relative;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
+  -ms-grid-rows: (auto 1fr) [2];
   grid-template-rows: repeat(2, auto 1fr);
   text-align: center;
   padding: 2rem 0.5rem;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#ffffff99),
+      color-stop(30%, #ffffff33),
+      color-stop(70%, #ffffff33),
+      to(#ffffff99)
+    ),
+    url('../images/background-texture_1.jpg');
+  background-image: -o-linear-gradient(
+      top,
+      #ffffff99 0%,
+      #ffffff33 30%,
+      #ffffff33 70%,
+      #ffffff99 100%
+    ),
+    url('../images/background-texture_1.jpg');
   background-image: linear-gradient(
       to bottom,
       #ffffff99 0%,
@@ -191,17 +245,56 @@ h1.title {
   background-size: cover;
 }
 
+.profiles > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.profiles > *:nth-child(2) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+
 @media only screen and (min-width: 54.857rem) {
   .profiles {
+    -ms-grid-columns: 1fr auto 1fr;
     grid-template-columns: 1fr auto 1fr;
+    -ms-grid-rows: (auto) [2];
     grid-template-rows: repeat(2, auto);
+  }
+  .profiles > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .profiles > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+  .profiles > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .profiles > *:nth-child(4) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  .profiles > *:nth-child(5) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+  .profiles > *:nth-child(6) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
   }
 
   .profiles .section-title {
+    -ms-grid-column-span: 3;
     grid-column: span 3;
   }
 
   .profiles .ampersand {
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
     place-self: center;
   }
 }
@@ -210,13 +303,18 @@ h1.title {
   width: clamp(10rem, 80%, 20rem);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 .profile-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: var(--neutral-dark);
   font-size: var(--font-size-small);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   gap: 0.5rem;
 }
@@ -232,13 +330,21 @@ h1.title {
 /* c. Date */
 
 .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
   padding: 2rem 0.5rem;
   background: var(--primary-dark);
   color: var(--light);
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 2rem;
 }
@@ -248,11 +354,15 @@ h1.title {
 }
 
 .countdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 3rem;
 }
 
 .countdown-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
@@ -277,11 +387,31 @@ h1.title {
 /* e. Event Description */
 
 .event-description {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   gap: 1rem;
   text-align: center;
   padding: 2rem 0.5rem;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#ffffff99),
+      color-stop(#ffffff33),
+      color-stop(#ffffff33),
+      to(#ffffff99)
+    ),
+    url('../images/background-wedding.jpg');
+  background-image: -o-linear-gradient(
+      top,
+      #ffffff99,
+      #ffffff33,
+      #ffffff33,
+      #ffffff99
+    ),
+    url('../images/background-wedding.jpg');
   background-image: linear-gradient(
       to bottom,
       #ffffff99,
@@ -297,30 +427,71 @@ h1.title {
 
 @media only screen and (min-width: 54.857rem) {
   .event-description {
+    -ms-grid-columns: (1fr) [2];
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .desc-date {
+  display: -ms-inline-grid;
   display: inline-grid;
+  -ms-grid-columns: (auto) [2];
   grid-template-columns: repeat(2, auto);
+  -ms-grid-rows: (auto) [3];
   grid-template-rows: repeat(3, auto);
 }
 
+.desc-date > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.desc-date > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+
+.desc-date > *:nth-child(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+
+.desc-date > *:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+}
+
+.desc-date > *:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+
+.desc-date > *:nth-child(6) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+}
+
 .desc-date__day {
+  -ms-grid-column-span: 2;
   grid-column: span 2;
 }
 
 .desc-date__date {
+  -ms-grid-row-span: 2;
   grid-row: span 2;
   font-size: var(--font-size-larger);
+  -ms-grid-column-align: end;
   justify-self: end;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
 .desc-date__month,
 .desc-date__year {
+  -ms-grid-column-align: start;
   justify-self: start;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -367,6 +538,7 @@ h1.title {
 @media only screen and (min-width: 54.857rem) {
   .desc-date,
   .desc-location {
+    -ms-grid-column-span: 2;
     grid-column: span 2;
   }
 }
@@ -387,6 +559,7 @@ h1.title {
 }
 
 .react-photo-gallery--gallery img {
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -398,7 +571,12 @@ h1.title {
 }
 
 .wishes-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 0.5rem;
   margin: 1rem auto;
@@ -432,18 +610,29 @@ input.btn[type='submit']:focus {
 }
 
 .wishes-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0 1rem;
 }
 
 .wish-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   text-align: left;
   border-radius: 0.3rem;
   padding: 0.5rem 0.75rem;
+  -webkit-box-shadow: 1px 1px 3px lightgray;
   box-shadow: 1px 1px 3px lightgray;
 }
 
@@ -462,11 +651,23 @@ input.btn[type='submit']:focus {
 */
 
 footer {
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#04040455),
+      color-stop(#04040433),
+      to(#04040455)
+    ),
+    url('../images/background-footer.jpg');
+  background-image: -o-linear-gradient(top, #04040455, #04040433, #04040455),
+    url('../images/background-footer.jpg');
   background-image: linear-gradient(to bottom, #04040455, #04040433, #04040455),
     url('../images/background-footer.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: -ms-grid;
   display: grid;
   place-items: center;
   padding: 4rem 0;
