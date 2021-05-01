@@ -400,6 +400,8 @@ h1.title {
 }
 
 .video-container video {
+  position: relative;
+  z-index: 10;
   width: 100%;
 }
 
@@ -415,7 +417,8 @@ h1.title {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 /* e. Event Description */
