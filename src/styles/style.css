@@ -659,6 +659,8 @@ input.btn[type='submit']:focus {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0 1rem;
+  max-height: 30rem;
+  overflow-y: scroll;
 }
 
 .wish-card {

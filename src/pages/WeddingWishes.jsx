@@ -1,7 +1,6 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import FetchWeddingData from '../api/weddingInvitationApi';
 import WishCard from '../components/WishCard';
-import DATA from '../data/DATA.json';
 
 const WeddingWishes = () => {
   const monthList = [
@@ -27,7 +26,7 @@ const WeddingWishes = () => {
 
   const fetchWishes = async () => {
     try {
-      const { data } = await axios.get(`${DATA.databaseUrl}/wishes`);
+      const data = await FetchWeddingData.getWishes();
       setWishes(data);
     } catch (err) {
       alert(`There's a problem : ${err}`);
@@ -46,17 +45,17 @@ const WeddingWishes = () => {
     };
 
     postWish(weddingWish);
+
+    document.getElementById('wishesForm').reset();
+    alert(`Sent! ${weddingWish.name}`);
   };
 
   const postWish = async (weddingWish) => {
     try {
-      const { data } = await axios.post(
-        `${DATA.databaseUrl}/wishes`,
-        weddingWish
-      );
+      const data = await FetchWeddingData.postWish(weddingWish);
       setWishes([...wishes, data]);
     } catch (err) {
-      alert(`There's a problem : ${err}`);
+      throw new Error(`There's a problem : ${err.message}`);
     }
   };
 
@@ -65,7 +64,12 @@ const WeddingWishes = () => {
       <h2 className="section-title" data-aos="fade-down">
         Wedding Wishes
       </h2>
-      <form className="wishes-form" onSubmit={onSubmitHandler} data-aos="fade">
+      <form
+        className="wishes-form"
+        id="wishesForm"
+        onSubmit={onSubmitHandler}
+        data-aos="fade"
+      >
         <input
           type="text"
           className="name"

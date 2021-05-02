@@ -1,4 +1,25 @@
+import { useEffect, useState } from 'react';
+
 const EventDescription = (props) => {
+  const { dateData, location, schedule } = props;
+
+  const [locationState, setLocationState] = useState({
+    name: '',
+    address: '',
+    mapsLink: '',
+  });
+
+  const [scheduleState, setScheduleState] = useState({
+    marriage: '',
+    reception: {},
+  });
+
+  useEffect(() => {
+    setLocationState(location);
+    setScheduleState(schedule);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props]);
+
   const monthList = [
     'January',
     'February',
@@ -24,8 +45,6 @@ const EventDescription = (props) => {
     'Saturday',
   ];
 
-  const { dateData, location, schedule } = props;
-
   return (
     <section className="event-description">
       <div className="desc-date" data-aos="fade">
@@ -48,26 +67,26 @@ const EventDescription = (props) => {
       </div>
       <div className="desc-time" data-aos="fade-right">
         <span>Akad Nikah</span>
-        <span>{schedule.marriage}</span>
+        <span>{scheduleState.marriage}</span>
       </div>
       <div className="desc-schedule" data-aos="fade-left">
         <span>Resepsi</span>
         {/* <span>Sesi 1 : 11.00 - 12.30 WIB</span>
         <span>&</span>
         <span>Sesi 2 : 13.00 - 14.30 WIB</span> */}
-        {schedule.reception.map((rec) => (
+        {Object.keys(scheduleState.reception).map((rec) => (
           <span>
-            {Object.keys(schedule.reception)[rec]} : {rec}
+            {rec} : {scheduleState.reception[rec]}
           </span>
         ))}
         <p>{/* <strong>11:00 - 14.30</strong> */}</p>
       </div>
       <div className="desc-location" data-aos="fade">
-        <span>{location.name}</span>
-        <p>{location.address}</p>
+        <span>{locationState.name}</span>
+        <p>{locationState.address}</p>
         <a
           className="btn view-map-button"
-          href={location.mapsLink}
+          href={locationState.mapsLink}
           target="_blank"
           rel="noreferrer"
         >

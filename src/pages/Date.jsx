@@ -2,10 +2,12 @@ import Countdown from '../components/Countdown';
 import saveTheDate from '../images/save-the-date.gif';
 
 const Date = (props) => {
+  const { dateString, dateData } = props;
+
   return (
     <section className="date">
       <h2 className="section-title" data-aos="fade-down">
-        {props.dateString}
+        {dateString}
       </h2>
       <img
         src={saveTheDate}
@@ -13,7 +15,7 @@ const Date = (props) => {
         className="save-the-date"
         data-aos="flip-right"
       />
-      <Countdown dateData={props.dateData} />
+      <Countdown dateData={dateData} />
     </section>
   );
 };
